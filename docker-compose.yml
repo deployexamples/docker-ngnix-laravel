@@ -1,0 +1,18 @@
+services:
+  app:
+    build:
+      context: . # Path to the directory containing your Dockerfile
+      dockerfile: dockerfile # Path to your Dockerfile (ensure the case is correct)
+    container_name: dockerApp # Name of the container
+    ports:
+      - "8001:80" # Map port 80 in the container to port 8001 on the host
+    volumes:
+      - .:/app # Mount the current directory to /app in the container
+    environment:
+      - PHP_INI_DIR=/usr/local/etc/php # Optional: Define environment variables
+    networks:
+      - laravel # Connect the app service to the laravel network
+
+networks:
+  laravel:
+    driver: bridge
