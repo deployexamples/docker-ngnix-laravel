@@ -36,6 +36,7 @@ jobs:
                   docker compose build --no-cache 
                   docker compose up -d
                   docker exec -it dockerApp bash
+                  composer install --no-interaction --no-suggest
                   php artisan config:cache
                   php artisan route:cache
                   php artisan view:clear
