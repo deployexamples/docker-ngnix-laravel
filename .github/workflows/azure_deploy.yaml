@@ -28,7 +28,7 @@ jobs:
 
             - name: Deploy to Azure VM
               run: |
-                  ssh -o StrictHostKeyChecking=no azureuser@20.51.207.28 << 'EOF'
+                  ssh -o StrictHostKeyChecking=no azureuser@172.174.168.214 << 'EOF'
                   cd ngnix/docker-ngnix-laravel
                   git pull origin main || { echo 'Git pull failed'; exit 1; }
                   docker compose down
